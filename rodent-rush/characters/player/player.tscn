@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmvhrvjuurpuo"]
+[gd_scene load_steps=27 format=3 uid="uid://bmvhrvjuurpuo"]
 
 [ext_resource type="Script" path="res://characters/player/scripts/player.gd" id="1_2xoqn"]
 [ext_resource type="Texture2D" uid="uid://bnngjx5aetn3t" path="res://characters/player/sprites/rat/rat-run.png" id="2_2fpr8"]
 [ext_resource type="Texture2D" uid="uid://dm1x1xapooo2c" path="res://characters/player/sprites/rat/rat-idle.png" id="3_6g1nk"]
+[ext_resource type="AudioStream" uid="uid://cuyiuhmthn5o6" path="res://characters/player/sounds/jump.wav" id="4_8kbu1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kycr"]
 radius = 5.0
@@ -182,5 +183,8 @@ shape = SubResource("CapsuleShape2D_7kycr")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ikmyj")
 animation = &"walk"
-frame_progress = 0.504542
+frame_progress = 0.20145
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8kbu1")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fjeum16o3ccy"
-path="res://.godot/imported/TX FX Flame.png-fb4be3a50b64fc39a4bddf0c253037c5.ctex"
+uid="uid://dm1x1xapooo2c"
+path="res://.godot/imported/rat-idle.png-638509d9f3f28ca7af1fcc3f7ce4d97a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/sprites/village-props/TX FX Flame.png"
-dest_files=["res://.godot/imported/TX FX Flame.png-fb4be3a50b64fc39a4bddf0c253037c5.ctex"]
+source_file="res://characters/player/sprites/rat/rat-idle.png"
+dest_files=["res://.godot/imported/rat-idle.png-638509d9f3f28ca7af1fcc3f7ce4d97a.ctex"]
 
 [params]
 

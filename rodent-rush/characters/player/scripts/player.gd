@@ -94,7 +94,6 @@ func _physics_process(delta):
 # Handle horizontal movement
 func horizontal_movement(delta):
 	var input_direction = get_input_direction()
-	print(input_direction)
 	
 	# Air speed handling
 	if !is_on_floor() or Input.is_action_pressed("jump"):
@@ -166,7 +165,6 @@ func dash(delta):
 
 	if is_on_floor() && velocity.y >= 0:
 		has_dashed = false
-	
 
 # Handles updating the animation
 func handle_anim():

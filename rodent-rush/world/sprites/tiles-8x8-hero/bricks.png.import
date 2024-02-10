@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxfk01lraq82u"
-path="res://.godot/imported/TX Chest Animation.png-322414321165d703a4de3adda38a86d1.ctex"
+uid="uid://cd6i2mtstdcxj"
+path="res://.godot/imported/bricks.png-60f20c529a78f9284df57c8468c03704.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/sprites/village-props/TX Chest Animation.png"
-dest_files=["res://.godot/imported/TX Chest Animation.png-322414321165d703a4de3adda38a86d1.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/bricks.png"
+dest_files=["res://.godot/imported/bricks.png-60f20c529a78f9284df57c8468c03704.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bioip5eb17b4"
-path="res://.godot/imported/MouseEat.png-2c713bd20b1e8ef018622ecc1cdf8bc0.ctex"
+uid="uid://dld4704iqxd0k"
+path="res://.godot/imported/ice.png-80794a52a230587c4342b17baac36c69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/rat/sprites/MouseEat.png"
-dest_files=["res://.godot/imported/MouseEat.png-2c713bd20b1e8ef018622ecc1cdf8bc0.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/ice.png"
+dest_files=["res://.godot/imported/ice.png-80794a52a230587c4342b17baac36c69.ctex"]
 
 [params]
 

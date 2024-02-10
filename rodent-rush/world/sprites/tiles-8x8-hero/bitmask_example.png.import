@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcm832tajcwwk"
-path="res://.godot/imported/player.png-eb762c7b0cf4e20c97fc55240f87cdba.ctex"
+uid="uid://bivrk0pl3bhfx"
+path="res://.godot/imported/bitmask_example.png-882135bd91d68ef9c89c885c8e9efd7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/sprites/fox/player.png"
-dest_files=["res://.godot/imported/player.png-eb762c7b0cf4e20c97fc55240f87cdba.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/bitmask_example.png"
+dest_files=["res://.godot/imported/bitmask_example.png-882135bd91d68ef9c89c885c8e9efd7f.ctex"]
 
 [params]
 

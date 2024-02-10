@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1hv27ky734ly"
-path="res://.godot/imported/MouseDamage.png-97618e365177307dae5d125156412d6c.ctex"
+uid="uid://bdcf7giwyw0k1"
+path="res://.godot/imported/grass_1.png-858f68194fe66a521b2eb82d260fd3eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/rat/sprites/MouseDamage.png"
-dest_files=["res://.godot/imported/MouseDamage.png-97618e365177307dae5d125156412d6c.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/grass_1.png"
+dest_files=["res://.godot/imported/grass_1.png-858f68194fe66a521b2eb82d260fd3eb.ctex"]
 
 [params]
 

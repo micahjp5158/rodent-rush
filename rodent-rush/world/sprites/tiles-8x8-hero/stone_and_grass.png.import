@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bangr046l7x7t"
-path="res://.godot/imported/TX FX Torch Flame.png-6055f6aa8d25730d444155144bf0be63.ctex"
+uid="uid://dihk2vx7oqlc5"
+path="res://.godot/imported/stone_and_grass.png-a2d443563d0af8c7713b08f435cecbfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/sprites/village-props/TX FX Torch Flame.png"
-dest_files=["res://.godot/imported/TX FX Torch Flame.png-6055f6aa8d25730d444155144bf0be63.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/stone_and_grass.png"
+dest_files=["res://.godot/imported/stone_and_grass.png-a2d443563d0af8c7713b08f435cecbfb.ctex"]
 
 [params]
 

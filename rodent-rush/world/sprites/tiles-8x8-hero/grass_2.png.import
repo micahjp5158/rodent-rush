@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjfth510iv64s"
-path="res://.godot/imported/Cheese.png-7e68399f32e207fca7f607f8a13677db.ctex"
+uid="uid://dwyvnhxwxoemp"
+path="res://.godot/imported/grass_2.png-7f186db65e09bd3e6cad4fdc2e9c8ced.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/rat/sprites/Cheese.png"
-dest_files=["res://.godot/imported/Cheese.png-7e68399f32e207fca7f607f8a13677db.ctex"]
+source_file="res://world/sprites/tiles-8x8-hero/grass_2.png"
+dest_files=["res://.godot/imported/grass_2.png-7f186db65e09bd3e6cad4fdc2e9c8ced.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hr7avu3ph5l5"
-path="res://.godot/imported/MouseRun.png-5064fd8760d8ec05f8400f2968783db0.ctex"
+uid="uid://bnngjx5aetn3t"
+path="res://.godot/imported/rat-run.png-e63208341c0a8f8c9cf481f38d07992c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/rat/sprites/MouseRun.png"
-dest_files=["res://.godot/imported/MouseRun.png-5064fd8760d8ec05f8400f2968783db0.ctex"]
+source_file="res://characters/player/sprites/rat/rat-run.png"
+dest_files=["res://.godot/imported/rat-run.png-e63208341c0a8f8c9cf481f38d07992c.ctex"]
 
 [params]
 

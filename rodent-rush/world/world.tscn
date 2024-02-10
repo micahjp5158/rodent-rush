@@ -1,17 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://umg2fomhvxvt"]
+[gd_scene load_steps=5 format=3 uid="uid://umg2fomhvxvt"]
 
 [ext_resource type="PackedScene" uid="uid://bmvhrvjuurpuo" path="res://characters/player/player.tscn" id="1_em40i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0q03"]
-size = Vector2(320.25, 20)
+size = Vector2(1464.13, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftyaa"]
+size = Vector2(134.125, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no8jb"]
+size = Vector2(18, 200)
 
 [node name="World" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(159.875, 170)
+position = Vector2(731.938, 190)
 shape = SubResource("RectangleShape2D_f0q03")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(164, 143)
+shape = SubResource("RectangleShape2D_ftyaa")
+
+[node name="Panel2" type="Panel" parent="StaticBody2D/CollisionShape2D5"]
+offset_left = -68.0
+offset_top = -4.0
+offset_right = 67.0
+offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(416, 146)
+shape = SubResource("RectangleShape2D_ftyaa")
+
+[node name="Panel2" type="Panel" parent="StaticBody2D/CollisionShape2D6"]
+offset_left = -67.0
+offset_top = -4.0
+offset_right = 68.0
+offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(668, 148)
+shape = SubResource("RectangleShape2D_ftyaa")
+
+[node name="Panel2" type="Panel" parent="StaticBody2D/CollisionShape2D7"]
+offset_left = -67.0
+offset_top = -4.0
+offset_right = 68.0
+offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(887, 145)
+shape = SubResource("RectangleShape2D_ftyaa")
+
+[node name="Panel2" type="Panel" parent="StaticBody2D/CollisionShape2D8"]
+offset_left = -65.0
+offset_top = -4.0
+offset_right = 70.0
+offset_bottom = 5.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(733, -11)
+shape = SubResource("RectangleShape2D_f0q03")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9, 100)
+shape = SubResource("RectangleShape2D_no8jb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1061, 89)
+shape = SubResource("RectangleShape2D_no8jb")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_em40i")]
-position = Vector2(138, 159)
+position = Vector2(152, 121)
+
+[node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 1052
+limit_bottom = 180
+editor_draw_limits = true

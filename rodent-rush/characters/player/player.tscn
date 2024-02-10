@@ -183,7 +183,7 @@ shape = SubResource("CapsuleShape2D_7kycr")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ikmyj")
 animation = &"walk"
-frame_progress = 0.20145
+frame_progress = 0.624235
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

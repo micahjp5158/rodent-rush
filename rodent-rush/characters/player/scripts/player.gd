@@ -164,6 +164,13 @@ func dash(delta):
 		if dash_time >= int(0.25 * 1 / delta):
 			is_dashing = false
 			dash_time = 0
+			if !is_on_floor() and has_dashed:
+				# Limit velocity if a dash was started and finished in the air
+				if velocity.x > 0:
+					velocity.x = min(200, velocity.x)
+				else:
+					velocity.x = max(-200, velocity.x)
+				velocity.y = max(velocity.y, -200)
 
 	if is_on_floor() && velocity.y >= 0:
 		has_dashed = false

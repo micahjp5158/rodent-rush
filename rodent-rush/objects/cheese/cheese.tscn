@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbwmgys7nba6y"]
+[gd_scene load_steps=4 format=3 uid="uid://bbwmgys7nba6y"]
 
+[ext_resource type="Script" path="res://objects/cheese/cheese.gd" id="1_1cdd4"]
 [ext_resource type="Texture2D" uid="uid://0rgxoch0h8rf" path="res://objects/cheese/sprites/cheese.png" id="1_lv7ht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8h2o"]
 radius = 6.0
 
 [node name="Area2D" type="Area2D"]
+script = ExtResource("1_1cdd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r8h2o")

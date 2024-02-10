@@ -42,9 +42,9 @@ func horizontal_movement(delta):
 # Get input velocity / walk direction
 func get_input_velocity():
 	var horizontal := 0.0
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("left"):
 		horizontal -= 1.0
-	if Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("right"):
 		horizontal += 1.0
 	return horizontal
 	

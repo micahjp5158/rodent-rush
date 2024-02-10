@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Character speed consts
-const SPEED = 200
-const ACCELERATION = 30
+const MAX_SPEED = 13000
+const ACCELERATION = 1700
 
 # Jump consts
 const JUMP_HEIGHT = 64
@@ -16,19 +16,29 @@ const JUMP_TIME_TO_DESCENT = .3
 # Nodes
 @onready var anim = get_node("AnimatedSprite2D")
 
-func _physics_process(delta):	
-	# Update velocities
-	velocity.y += get_gravity() * delta
-	velocity.x = get_input_velocity() * SPEED
+func _physics_process(delta):
+	# Handle horizontal velocity
+	horizontal_movement(delta)
 	
-	# Process jump
+	# Handle veritcal velocty and jump
+	velocity.y += get_gravity() * delta
 	if Input.is_action_pressed("jump") and is_on_floor():
 		jump()
 	
 	# Update animations and move
 	handle_anim()
 	move_and_slide()
-	
+
+# Handle horizontal movement
+func horizontal_movement(delta):
+	var input_velocity = get_input_velocity()
+	if input_velocity == -1:
+		velocity.x = max(velocity.x - ACCELERATION * delta, -MAX_SPEED * delta)
+	elif input_velocity == 1:
+		velocity.x = min(velocity.x + ACCELERATION * delta, MAX_SPEED * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, 0.3)
+
 # Get input velocity / walk direction
 func get_input_velocity():
 	var horizontal := 0.0
@@ -52,14 +62,15 @@ func jump():
 # Handles updating the animation
 func handle_anim():
 	# Flip sprites horizontally if needed
-	if velocity.x < 0:
+	var input_velocity = get_input_velocity()
+	if input_velocity < 0:
 		get_node("AnimatedSprite2D").flip_h = true
-	elif velocity.x > 0:
+	elif input_velocity > 0:
 		get_node("AnimatedSprite2D").flip_h = false
 	
 	# Select walk or idle if on the floor
 	if is_on_floor():
-		if velocity.x != 0:
+		if input_velocity != 0:
 			anim.play("walk")
 		else:
 			anim.play("idle")

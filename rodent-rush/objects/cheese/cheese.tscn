@@ -55,7 +55,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="cheese" type="Area2D"]
 script = ExtResource("1_1cdd4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -69,3 +69,4 @@ animation = &"idle"
 stream = ExtResource("3_i0gy1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

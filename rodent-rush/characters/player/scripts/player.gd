@@ -1,31 +1,24 @@
 extends CharacterBody2D
 
-const ACCELERATION = 1500
-const MAX_SPEED = 12000
+const ACCELERATION = 1000
+const MAX_SPEED = 8000
 const LIMIT_SPEED_Y = 1200
 const JUMP_HEIGHT = 20000
 const MIN_JUMP_HEIGHT = 12000
 const MAX_COYOTE_TIME = 6
 const JUMP_BUFFER_TIME = 10
-const WALL_JUMP_AMOUNT = 18000
-const WALL_JUMP_TIME = 10
-const WALL_SLIDE_FACTOR = 0.8
-const WALL_HORIZONTAL_TIME = 30
+const WALL_JUMP_KICKBACK = 230
+const WALL_SLIDE_SPEED = 50
 const GRAVITY = 2100
 const DASH_SPEED = 36000
-#const JUMP_HEIGHT = 64
-#const JUMP_TIME_TO_PEAK = .4
-#const JUMP_TIME_TO_DESCENT = .3
-
-#@onready var JUMP_VELOCITY : float = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_TO_PEAK) * -1.0
-#@onready var JUMP_GRAVITY : float = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_PEAK * JUMP_TIME_TO_PEAK)) * -1.0
-#@onready var FALL_GRAVITY : float = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_TO_DESCENT * JUMP_TIME_TO_DESCENT)) * -1.0
+const WALL_JUMP_TIMEOUT = 10
 
 var axis = Vector2()
 
 var coyote_timer = 0
 var jump_buffer_timer = 0
 var wall_jump_timer = 0
+var wall_jump_timeout_timer = 0
 var wall_horizontal_timer = 0
 var dashTime = 0
 
@@ -35,9 +28,11 @@ var has_dashed = false
 var dash_time = 0
 var friction = false
 var canJump = false
-var wall_sliding = false
+var is_wall_sliding = false
 var trail = false
 var is_grabbing = false
+
+var cheese_count = 0
 
 # Nodes
 @onready var anim = get_node("AnimatedSprite2D")
@@ -53,18 +48,16 @@ func _physics_process(delta):
 	get_input_axis()
 	dash(delta)
 	
-	#wallSlide(delta)
+	wallslide(delta)
 
 	#basic vertical movement mechanics
-	if wall_jump_timer > WALL_JUMP_TIME:
-		wall_jump_timer = WALL_JUMP_AMOUNT
-		if !is_dashing && !is_grabbing:
-			horizontal_movement(delta)
-	else:
-		wall_jump_timer += 1
+
+	horizontal_movement(delta)
 	
 	#jumping mechanics and coyote time
-	if is_on_floor():
+	if (wall_jump_timer > 0):
+		wall_jump_timer -= 1
+	if is_on_floor() or (is_on_wall() and get_input_direction() != 0 and Input.is_action_just_pressed("jump")):
 		canJump = true
 		coyote_timer = 0
 	else:
@@ -130,7 +123,7 @@ func get_walk_speed(delta):
 	elif input_direction == 1:
 		return min(velocity.x + ACCELERATION * delta, MAX_SPEED * delta)
 	else:
-		return  lerp(velocity.x, 0.0, 0.3)
+		return  lerp(velocity.x, 0.0, 0.4)
 
 func friction_on_air():
 	if friction:
@@ -138,8 +131,20 @@ func friction_on_air():
 
 # Handles jumping
 func jump(delta):
-	velocity.y = -JUMP_HEIGHT * delta
-	jumpsound.play()
+	if is_on_wall():
+		if wall_jump_timer == 0:
+			if Input.is_action_pressed("left"):
+				velocity.x = WALL_JUMP_KICKBACK
+				wall_jump_timer = WALL_JUMP_TIMEOUT
+				jumpsound.play()
+			elif Input.is_action_pressed("right"):
+				wall_jump_timer = WALL_JUMP_TIMEOUT
+				velocity.x = -WALL_JUMP_KICKBACK
+				jumpsound.play()
+	else:
+		velocity.y = -JUMP_HEIGHT * delta
+		if is_on_floor():
+			jumpsound.play()
 
 func jump_buffer(delta):
 	if jump_buffer_timer > 0:
@@ -151,7 +156,22 @@ func set_jump_height(delta):
 	if Input.is_action_just_released("jump"):
 		if velocity.y < -MIN_JUMP_HEIGHT * delta:
 			velocity.y = -MIN_JUMP_HEIGHT * delta
+
+func wallslide(delta):
+	if is_on_wall() and !is_on_floor():
+		if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+			if velocity.y > 0:
+				velocity.y += WALL_SLIDE_SPEED + delta
+				velocity.y = max(velocity.y, WALL_SLIDE_SPEED)
+			is_wall_sliding = true
+		else:
+			is_wall_sliding = false
+	else:
+		is_wall_sliding = false
 	
+	if is_wall_sliding:
+		velocity.y = min(velocity.y, WALL_SLIDE_SPEED)
+
 # Handles dashing
 func dash(delta):
 	if !has_dashed:
@@ -190,6 +210,9 @@ func handle_anim():
 			anim.play("walk")
 		else:
 			anim.play("idle")
+			
+	elif is_wall_sliding:
+		anim.play("wallslide")
 	
 	# Select jump or fall if in the air
 	else:
@@ -198,3 +221,7 @@ func handle_anim():
 			
 		else:
 			anim.play("fall")
+
+func add_cheese():
+	cheese_count += 1
+	print(cheese_count)

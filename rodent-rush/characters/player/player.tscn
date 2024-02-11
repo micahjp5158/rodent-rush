@@ -1,13 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmvhrvjuurpuo"]
+[gd_scene load_steps=28 format=3 uid="uid://bmvhrvjuurpuo"]
 
 [ext_resource type="Script" path="res://characters/player/scripts/player.gd" id="1_2xoqn"]
 [ext_resource type="Texture2D" uid="uid://bnngjx5aetn3t" path="res://characters/player/sprites/rat/rat-run.png" id="2_2fpr8"]
 [ext_resource type="Texture2D" uid="uid://dm1x1xapooo2c" path="res://characters/player/sprites/rat/rat-idle.png" id="3_6g1nk"]
 [ext_resource type="AudioStream" uid="uid://cuyiuhmthn5o6" path="res://characters/player/sounds/jump.wav" id="4_8kbu1"]
+[ext_resource type="Texture2D" uid="uid://cwjrjvt7kghq8" path="res://characters/player/sprites/rat/rat-wallslide.png" id="4_c5umy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7kycr"]
-radius = 5.0
-height = 10.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu7h0"]
+size = Vector2(11, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2luoc"]
 atlas = ExtResource("2_2fpr8")
@@ -40,10 +40,6 @@ region = Rect2(64, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqvrp"]
 atlas = ExtResource("3_6g1nk")
 region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nemgn"]
-atlas = ExtResource("2_2fpr8")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5b5c"]
 atlas = ExtResource("2_2fpr8")
@@ -89,6 +85,10 @@ region = Rect2(48, 0, 16, 16)
 atlas = ExtResource("2_2fpr8")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf6c5"]
+atlas = ExtResource("4_c5umy")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikmyj"]
 animations = [{
 "frames": [{
@@ -126,9 +126,6 @@ animations = [{
 "speed": 7.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nemgn")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l5b5c")
 }],
@@ -170,20 +167,28 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf6c5")
+}],
+"loop": false,
+"name": &"wallslide",
+"speed": 5.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_2xoqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -6)
-shape = SubResource("CapsuleShape2D_7kycr")
+position = Vector2(-0.5, -5.5)
+shape = SubResource("RectangleShape2D_iu7h0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ikmyj")
-animation = &"idle"
-frame_progress = 0.116386
+animation = &"jump"
+flip_h = true
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

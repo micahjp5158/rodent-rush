@@ -11,3 +11,9 @@ var time = 0
 func _physics_process(delta):
 	time += delta * FLOAT_FREQ
 	self.set_position(default_pos + Vector2(0, sin(time) * FLOAT_AMP))
+
+
+func _on_body_entered(body):
+	$AnimatedSprite2D.play("eat")
+	$sound_eat.play()
+	pass # Replace with function body.

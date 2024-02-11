@@ -183,7 +183,7 @@ shape = SubResource("CapsuleShape2D_7kycr")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ikmyj")
 animation = &"idle"
-frame_progress = 0.227254
+frame_progress = 0.116386
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

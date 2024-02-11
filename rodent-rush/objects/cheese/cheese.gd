@@ -18,7 +18,10 @@ func _on_body_entered(body):
 	$sound_eat.play()
 	$CollisionShape2D.queue_free()
 	body.add_cheese()
+	
 	pass # Replace with function body.
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+	get_tree().quit()
+	

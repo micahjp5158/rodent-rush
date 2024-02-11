@@ -176,14 +176,14 @@ animations = [{
 script = ExtResource("1_2xoqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -5)
+position = Vector2(-1, -6)
 shape = SubResource("CapsuleShape2D_7kycr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ikmyj")
-animation = &"walk"
-frame_progress = 0.624235
+animation = &"idle"
+frame_progress = 0.227254
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

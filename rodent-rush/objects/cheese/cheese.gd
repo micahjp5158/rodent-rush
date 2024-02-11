@@ -1,11 +1,13 @@
 extends Area2D
 
+const FLOAT_AMP = 2
+const FLOAT_FREQ = 5
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var time = 0
 
+@onready var default_pos = get_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	pass
+	time += delta * FLOAT_FREQ
+	self.set_position(default_pos + Vector2(0, sin(time) * FLOAT_AMP))
